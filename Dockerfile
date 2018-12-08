@@ -1,5 +1,5 @@
 FROM manorrock/openjdk:8u171
-ENV JENKINS_VERSION 2.138.2
+ENV JENKINS_VERSION 2.150.1
 ENV JENKINS_HOME /mnt
 RUN zypper --non-interactive rr Java_Factory && \
     zypper --non-interactive refresh && \
