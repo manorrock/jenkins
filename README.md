@@ -5,3 +5,6 @@
 ----
 
 Note the default work directory of this container is /mnt
+
+---
+Please file issues/questions at https://github.com/manorrock/jenkins/issues
