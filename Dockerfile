@@ -1,5 +1,5 @@
 FROM manorrock/jdk:arm32v6
-ENV JENKINS_VERSION 2.164.3
+ENV JENKINS_VERSION 2.176.2
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
     apt-get -y install git && \
