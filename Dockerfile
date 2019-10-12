@@ -3,7 +3,7 @@ RUN ["cross-build-start"]
 ENV JENKINS_VERSION 2.190.1
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
-    apt-get -y install curl libfreetype6 libfontconfig1 && \
+    apt-get -y install curl libfontconfig1 && \
     mkdir -p /usr/local/jenkins${JENKINS_VERSION} && \
     curl -fL -o /usr/local/jenkins${JENKINS_VERSION}/jenkins.war https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
 WORKDIR ${JENKINS_HOME}
