@@ -3,7 +3,7 @@ RUN ["cross-build-start"]
 ENV JENKINS_VERSION 2.190.1
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
-    apt-get -y install curl && \
+    apt-get -y install curl git && \
     mkdir -p /usr/local/jenkins${JENKINS_VERSION} && \
     curl -fL -o /usr/local/jenkins${JENKINS_VERSION}/jenkins.war https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
 WORKDIR ${JENKINS_HOME}
