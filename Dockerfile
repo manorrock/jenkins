@@ -1,5 +1,5 @@
-FROM manorrock/openjdk
-ENV JENKINS_VERSION 2.190.2
+FROM manorrock/adoptopenjdk:11.0.5
+ENV JENKINS_VERSION 2.190.3
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
     apt-get install -y curl fontconfig fonts-dejavu git && \
