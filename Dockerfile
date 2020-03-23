@@ -1,6 +1,6 @@
 FROM manorrock/zulu:arm32v6-11.0.4
 RUN ["cross-build-start"]
-ENV JENKINS_VERSION 2.204.1
+ENV JENKINS_VERSION 2.204.5
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
     apt-get -y install curl fontconfig fonts-dejavu git && \
