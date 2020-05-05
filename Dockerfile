@@ -1,6 +1,6 @@
 FROM manorrock/zulu:arm32v6-11.0.4
 RUN ["cross-build-start"]
-ENV JENKINS_VERSION 2.204.5
+ENV JENKINS_VERSION 2.222.3
 ENV JENKINS_HOME /mnt
 RUN apt-get update && \
     apt-get -y install curl fontconfig fonts-dejavu git && \
@@ -10,4 +10,3 @@ WORKDIR ${JENKINS_HOME}
 EXPOSE 8080 
 CMD ["sh", "-c", "java -Djava.awt.headless=true -jar /usr/local/jenkins${JENKINS_VERSION}/jenkins.war"]
 RUN ["cross-build-end"]
-
