@@ -33,7 +33,7 @@ ENV PATH=$PATH:/usr/local/jdk/bin
 #
 # Set JENKINS_VERSION.
 #
-ENV JENKINS_VERSION 2.222.4
+ENV JENKINS_VERSION 2.235.1
 
 #
 # Install Jenkins.
@@ -65,4 +65,4 @@ RUN ["cross-build-end"]
 #
 # Start Jenkins in headless mode.
 #
-CMD ["sh", "-c", "java -Djava.awt.headless=true -jar /usr/local/jenkins${JENKINS_VERSION}/jenkins.war"]
+CMD ["sh", "-c", "java -Djava.awt.headless=true -jar /usr/local/jenkins/jenkins.war"]
