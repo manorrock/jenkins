@@ -45,7 +45,7 @@ RUN mkdir -p /usr/local/jenkins && \
 #
 # Set JENKINS_HOME.
 #
-ENV JENKINS_HOME /opt/jenkins
+ENV JENKINS_HOME /mnt
 
 #
 # Set work directory.
