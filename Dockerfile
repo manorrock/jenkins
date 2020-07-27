@@ -20,10 +20,10 @@ RUN apt-get update && \
 # Install Zulu 11.
 #
 RUN cd /usr/local && \
-    curl --insecure -L -O https://cdn.azul.com/zulu-embedded/bin/zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz && \
-    tar xfvz zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz && \
-    mv zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf jdk && \
-    rm zulu11.37.48-ca-jdk11.0.6-linux_aarch32hf.tar.gz
+    curl --insecure -L -O https://cdn.azul.com/zulu-embedded/bin/zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz && \
+    tar xfvz zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz && \
+    mv zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf jdk && \
+    rm zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz
 
 #
 # Setup PATH.
