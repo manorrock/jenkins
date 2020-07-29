@@ -10,7 +10,7 @@ For the amd64 images please go to the official Docker repository available
 
 ## Run Jenkins on port 8080
 
-    docker run -d -i -p 8080:8080 -v $PWD:/mnt manorrock/jenkins:arm32v6
+    docker run -d -i -p 8080:8080 -v $PWD:/mnt manorrock/jenkins:arm
 
 ----
 
