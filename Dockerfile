@@ -1,34 +1,7 @@
 #
-# Use Raspbian
+# Use AdoptOpenJDK 11
 #
-FROM balenalib/raspberry-pi
-
-#
-# Setup for cross-platform building.
-#
-RUN ["cross-build-start"]
-
-#
-# Update Raspbian and install curl, fontconfig, fonts-dejavu and git.
-#
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y curl fontconfig fonts-dejavu git && \
-    rm -rf /var/lib/apt/lists/*
-
-#
-# Install Zulu 11.
-#
-RUN cd /usr/local && \
-    curl --insecure -L -O https://cdn.azul.com/zulu-embedded/bin/zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz && \
-    tar xfvz zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz && \
-    mv zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf jdk && \
-    rm zulu11.39.61-ca-jdk11.0.7-linux_aarch32hf.tar.gz
-
-#
-# Setup PATH.
-#
-ENV PATH=$PATH:/usr/local/jdk/bin
+FROM adoptopenjdk:11-hotspot@sha256:cf09212dedb08a31fa01362d3f41e7f16c0beab82406cfaf3f88d9479fe4520f
 
 #
 # Set JENKINS_VERSION.
@@ -56,11 +29,6 @@ WORKDIR ${JENKINS_HOME}
 # Expose port 8080.
 #
 EXPOSE 8080 
-
-#
-# End cross platform building.
-#
-RUN ["cross-build-end"]
 
 #
 # Start Jenkins in headless mode.
