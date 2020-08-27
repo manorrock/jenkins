@@ -1,7 +1,7 @@
 #
 # Use Raspbian
 #
-FROM balenalib/raspberry-pi
+FROM balenalib/raspberry-pi2
 
 #
 # Setup for cross-platform building.
