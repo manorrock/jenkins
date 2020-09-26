@@ -15,7 +15,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build amd64 image
       run: |
-        docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/jenkins:amd64-snapshot .
+        docker build -f Dockerfile.amd64 -t manorrock/jenkins:amd64-snapshot .
         docker push manorrock/jenkins:amd64-snapshot
     - name: Push Docker manifest
       run: |
