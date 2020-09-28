@@ -2,7 +2,7 @@
 
 ## Run Jenkins on port 8080
 
-    docker run -d -i -p 8080:8080 -v $PWD:/mnt manorrock/jenkins:arm
+    docker run -d -i -p 8080:8080 -v $PWD:/mnt manorrock/jenkins
 
 ----
 
