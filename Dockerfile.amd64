@@ -28,7 +28,7 @@ ENV PATH=$PATH:/usr/local/jdk/bin
 #
 # Set JENKINS_VERSION.
 #
-ENV JENKINS_VERSION 2.249.1
+ENV JENKINS_VERSION 2.249.2
 
 #
 # Install Jenkins.
