@@ -15,27 +15,27 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build amd64 image
       run: |
-        docker build -f Dockerfile.amd64 -t manorrock/jenkins:amd64-snapshot .
-        docker push manorrock/jenkins:amd64-snapshot
+        docker build -f Dockerfile.amd64 -t manorrock/jenkins:amd64-latest .
+        docker push manorrock/jenkins:amd64-latest
     - name: Build arm32v6 image
       run: |
-        docker build -f Dockerfile.arm32v6 -t manorrock/jenkins:arm32v6-snapshot .
-        docker push manorrock/jenkins:arm32v6-snapshot
+        docker build -f Dockerfile.arm32v6 -t manorrock/jenkins:arm32v6-latest .
+        docker push manorrock/jenkins:arm32v6-latest
     - name: Build arm64v8 image
       run: |
-        docker build -f Dockerfile.arm64v8 -t manorrock/jenkins:arm64v8-snapshot .
-        docker push manorrock/jenkins:arm64v8-snapshot
+        docker build -f Dockerfile.arm64v8 -t manorrock/jenkins:arm64v8-latest .
+        docker push manorrock/jenkins:arm64v8-latest
     - name: Push Docker manifest
       run: |
         export DOCKER_CLI_EXPERIMENTAL=enabled
-        docker manifest create manorrock/jenkins:snapshot \
-          manorrock/jenkins:amd64-snapshot \
-          manorrock/jenkins:arm32v6-snapshot \
-          manorrock/jenkins:arm64v8-snapshot
-        docker manifest annotate manorrock/jenkins:snapshot \
-          manorrock/jenkins:amd64-snapshot --os linux --arch amd64
-        docker manifest annotate manorrock/jenkins:snapshot \
-          manorrock/jenkins:arm32v6-snapshot --os linux --arch arm
-        docker manifest annotate manorrock/jenkins:snapshot \
-          manorrock/jenkins:arm64v8-snapshot --os linux --arch arm64
-        docker manifest push manorrock/jenkins:snapshot
+        docker manifest create manorrock/jenkins:latest \
+          manorrock/jenkins:amd64-latest \
+          manorrock/jenkins:arm32v6-latest \
+          manorrock/jenkins:arm64v8-latest
+        docker manifest annotate manorrock/jenkins:latest \
+          manorrock/jenkins:amd64-latest --os linux --arch amd64
+        docker manifest annotate manorrock/jenkins:latest \
+          manorrock/jenkins:arm32v6-latest --os linux --arch arm
+        docker manifest annotate manorrock/jenkins:latest \
+          manorrock/jenkins:arm64v8-latest --os linux --arch arm64
+        docker manifest push manorrock/jenkins:latest
