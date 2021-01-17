@@ -10,7 +10,7 @@ RUN cd /usr/local && \
     mv jdk-11.0.8+10 jdk && \
     rm OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.8_10.tar.gz
 ENV PATH=$PATH:/usr/local/jdk/bin
-ENV JENKINS_VERSION 2.263.1
+ENV JENKINS_VERSION 2.263.2
 RUN mkdir -p /usr/local/jenkins && \
     curl --insecure -fL -o /usr/local/jenkins/jenkins.war \
     https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
