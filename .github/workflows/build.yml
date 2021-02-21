@@ -21,21 +21,14 @@ jobs:
       run: |
         docker build -f Dockerfile.arm32v6 -t manorrock/jenkins:arm32v6-latest .
         docker push manorrock/jenkins:arm32v6-latest
-    - name: Build arm64v8 image
-      run: |
-        docker build -f Dockerfile.arm64v8 -t manorrock/jenkins:arm64v8-latest .
-        docker push manorrock/jenkins:arm64v8-latest
     - name: Push Docker manifest
       run: |
         export DOCKER_CLI_EXPERIMENTAL=enabled
         docker manifest create manorrock/jenkins:latest \
           manorrock/jenkins:amd64-latest \
-          manorrock/jenkins:arm32v6-latest \
-          manorrock/jenkins:arm64v8-latest
+          manorrock/jenkins:arm32v6-latest
         docker manifest annotate manorrock/jenkins:latest \
           manorrock/jenkins:amd64-latest --os linux --arch amd64
         docker manifest annotate manorrock/jenkins:latest \
           manorrock/jenkins:arm32v6-latest --os linux --arch arm
-        docker manifest annotate manorrock/jenkins:latest \
-          manorrock/jenkins:arm64v8-latest --os linux --arch arm64
         docker manifest push manorrock/jenkins:latest

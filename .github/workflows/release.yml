@@ -28,13 +28,6 @@ jobs:
         VERSION=${TAG:${#INDEX}}
         docker build -f Dockerfile.arm32v6 -t manorrock/jenkins:arm32v6-$VERSION .
         docker push manorrock/jenkins:arm32v6-$VERSION
-    - name: Build arm64v8 image
-      run: |
-        TAG=${GITHUB_REF}
-        INDEX=${TAG%v*}
-        VERSION=${TAG:${#INDEX}}
-        docker build -f Dockerfile.arm64v8 -t manorrock/jenkins:arm64v8-$VERSION .
-        docker push manorrock/jenkins:arm64v8-$VERSION
     - name: Push Docker manifest
       run: |
         TAG=${GITHUB_REF}
@@ -43,12 +36,9 @@ jobs:
         export DOCKER_CLI_EXPERIMENTAL=enabled
         docker manifest create manorrock/jenkins:$VERSION \
           manorrock/jenkins:amd64-$VERSION \
-          manorrock/jenkins:arm32v6-$VERSION \
-          manorrock/jenkins:arm64v8-$VERSION
+          manorrock/jenkins:arm32v6-$VERSION
         docker manifest annotate manorrock/jenkins:$VERSION \
           manorrock/jenkins:amd64-$VERSION --os linux --arch amd64
         docker manifest annotate manorrock/jenkins:$VERSION \
           manorrock/jenkins:arm32v6-$VERSION --os linux --arch arm
-        docker manifest annotate manorrock/jenkins:$VERSION \
-          manorrock/jenkins:arm64v8-$VERSION --os linux --arch arm64
         docker manifest push manorrock/jenkins:$VERSION
